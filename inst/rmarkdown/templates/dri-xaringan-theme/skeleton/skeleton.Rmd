@@ -86,13 +86,13 @@ Here is an example reference: `r AutoCite(bib, c("baker_polygenic_2020"))`
 
 .pull-right[
 ```{r, label='pull-right-example', out.width='80%'}
-knitr::include_graphics("images//UK DRI Logos/UK DRI MONO/JPG/UK Dementia Research Institute_LOGO_MONO.jpg")
+knitr::include_graphics("dri_logo_mono.jpg")
 ```
 ]
 
 .centre[
 ```{r, label='image-example', out.width='80%'}
-knitr::include_graphics("images//UK DRI Logos/Founding Funders/UK DRI Founders_nostrapline_RGB.jpg")
+knitr::include_graphics("images/dri_founders_nostrapline.jpg")
 ```
 ]
 
@@ -115,13 +115,13 @@ Here is an example reference: `r AutoCite(bib, c("baker_polygenic_2020"))`
 
 .pull-right[
 ```{r, label='pull-right-example-invert', out.width='80%'}
-knitr::include_graphics("images//UK DRI Logos/UK DRI MONO/JPG/UK Dementia Research Institute_LOGO_MONO.jpg")
+knitr::include_graphics("dri_logo_mono.jpg")
 ```
 ]
 
 .centre[
 ```{r, label='image-example-invert', out.width='80%'}
-knitr::include_graphics("images//UK DRI Logos/Founding Funders/UK DRI Founders_nostrapline_RGB.jpg")
+knitr::include_graphics("images/dri_founders_nostrapline.jpg")
 ```
 ]
 
@@ -151,7 +151,7 @@ ggplot(diamonds, aes(carat, price, colour = cut)) +
 # Examples with R code: Images
 
 ```{r, label='example-code-image', echo=TRUE, out.width="80%"}
-knitr::include_graphics("images//UK DRI Logos/UK DRI MONO/JPG/UK Dementia Research Institute_LOGO_MONO.jpg")
+knitr::include_graphics("dri_logo_mono.jpg")
 ```
 
 ---
