@@ -19,7 +19,7 @@ To open the template in [RStudio](https://www.rstudio.com/), go to `File` > `New
 
 ![](images/new-rmd.png)
 
-You can also use the `draft()` function from the {rmarkdown} package:
+You can also use the `draft()` function from the `rmarkdown` package:
 
 ```{r}
 rmarkdown::draft(
@@ -32,4 +32,5 @@ rmarkdown::draft(
 ## Contribute
 
 I am not a web developer by any means, so I'm sure there's plenty of room for improvements!
-Please feel free [leave an issue](https://github.com/H-Mateus/dri.xaringan.theme/issues).
+
+Pull requests are very welcome, and please feel free to [leave an issue](https://github.com/H-Mateus/dri.xaringan.theme/issues).
