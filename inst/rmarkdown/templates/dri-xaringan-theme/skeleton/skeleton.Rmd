@@ -23,7 +23,6 @@ output:
           </div>
         </div>
     seal: false
-csl: /home/mateus/Documents/citation_styles/elsevier-vancouver.csl
 ---
 
 ```{r setup, include=FALSE}
@@ -56,6 +55,7 @@ RefManageR::BibOptions(check.entries = FALSE,
            hyperlink = "to.doc",
            dashed = FALSE)
 ## read bib file
+## reference managment software should be able to export .bib files
 bib <- RefManageR::ReadBib("references/example.bib", check = FALSE)
 ```
 
