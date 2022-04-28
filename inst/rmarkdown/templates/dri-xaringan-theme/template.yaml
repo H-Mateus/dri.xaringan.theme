@@ -1,0 +1,4 @@
+name: "DRI xaringan template"
+description: >
+   A xaringan template with official DRI styling
+create_dir: FALSE

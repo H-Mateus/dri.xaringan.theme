@@ -1,0 +1,269 @@
+---
+title: "Example title that is<br>kinda long"
+subtitle: "Subtitle"
+author: '<span style="color:white;">Name</span>'
+date: "2022-02-04 (updated: `r Sys.Date()`)"
+institute: "Position<br>Lab Group"
+output:
+  xaringan::moon_reader:
+    css: dri-theme.css
+    ## the following two lines are for having a logo on each slide
+    ## update the insert-logo.html to change logo and size/pos
+    includes:
+      after_body: insert-logo.html
+    lib_dir: libs
+    stand_alone: true
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: "16:9"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+    seal: false
+csl: /home/mateus/Documents/citation_styles/elsevier-vancouver.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE,
+                      fig.showtext = TRUE, fig.retina = 3, warning = FALSE)
+options(knitr.kable.NA = '') # sets NAs in tables to be blank
+options(knitr.table.format = "html")
+library(tidyverse)
+library(kableExtra)
+library(leaflet)
+library(DT)
+```
+
+```{r, label='dri-hexcolours', include=FALSE}
+dri_hexcolours <- c("dark_blue" = "#00326e", "light_grey" = "#c4d1d9",
+                    "dark_grey" = "#415767", "sky_blue" = "#0ac8ff",
+                    "petrol_blue" = "007faf", "brigth_blue" = "4682ff",
+                    "cobalt" = "325ad7", "violet" = "#461e8c", "fuchsia" = "#fa2d6e",
+                    "ruby" = "#aa0050", "yellow" = "#ffed00")
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+## load package
+library(RefManageR)
+## set citation styles
+RefManageR::BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "authoryear",
+           style = "markdown",
+           hyperlink = "to.doc",
+           dashed = FALSE)
+## read bib file
+bib <- RefManageR::ReadBib("references/example.bib", check = FALSE)
+```
+
+name: title-slide
+class: title-slide
+
+# Example title that is<br>kinda long
+## Subtitle
+
+### <span style="color:white;">Name</span>
+### Position<br>Lab Group
+### 2022-02-04 (updated: `r Sys.Date()`)
+
+---
+
+# Example slide
+
+Here is some text.
+The font is Arial <span style="color:#00326e">(hex: #00326e)</span>.
+Here is another sentence with **bold** and *italic* text.
+Here is an example reference: `r AutoCite(bib, c("baker_polygenic_2020"))`
+
+.pull-left[
+- Here is a bullet point
+- The font used is Arial and font size is 18px
+- Bullets are coloured <span style="color:#0ac8ff;">hex: #0ac8ff</span>
+]
+
+.pull-right[
+```{r, label='pull-right-example', out.width='80%'}
+knitr::include_graphics("images//UK DRI Logos/UK DRI MONO/JPG/UK Dementia Research Institute_LOGO_MONO.jpg")
+```
+]
+
+.centre[
+```{r, label='image-example', out.width='80%'}
+knitr::include_graphics("images//UK DRI Logos/Founding Funders/UK DRI Founders_nostrapline_RGB.jpg")
+```
+]
+
+---
+
+class: inverse
+
+# Inverted example slide
+
+Here is some text.
+The font is Arial <span style="color:#00326e">(hex: #00326e)</span>.
+Here is another sentence with **bold** and *italic* text.
+Here is an example reference: `r AutoCite(bib, c("baker_polygenic_2020"))`
+
+.pull-left[
+- Here is a bullet point
+- The font used is Arial and font size is 18px
+- Bullets are coloured <span style="color:#0ac8ff;">hex: #0ac8ff</span>
+]
+
+.pull-right[
+```{r, label='pull-right-example-invert', out.width='80%'}
+knitr::include_graphics("images//UK DRI Logos/UK DRI MONO/JPG/UK Dementia Research Institute_LOGO_MONO.jpg")
+```
+]
+
+.centre[
+```{r, label='image-example-invert', out.width='80%'}
+knitr::include_graphics("images//UK DRI Logos/Founding Funders/UK DRI Founders_nostrapline_RGB.jpg")
+```
+]
+
+---
+
+# Examples with R code: Plots
+
+.pull-left[
+```{r label='example-code-plot', echo=TRUE, fig.show = 'hide'}
+## load some data
+data(diamonds)
+
+## make a plot
+ggplot(diamonds, aes(carat, price, colour = cut)) +
+    geom_point() +
+    theme_bw() +
+    scale_color_viridis_d()
+```
+]
+.pull-right[
+```{r ref.label = 'example-code-plot', echo = FALSE, out.width="100%"}
+```
+]
+
+---
+
+# Examples with R code: Images
+
+```{r, label='example-code-image', echo=TRUE, out.width="80%"}
+knitr::include_graphics("images//UK DRI Logos/UK DRI MONO/JPG/UK Dementia Research Institute_LOGO_MONO.jpg")
+```
+
+---
+
+# Examples with R code: Tables
+
+```{r, label='example-code-table', highlight.output = TRUE, echo=TRUE}
+## print table
+kable(head(diamonds))
+```
+
+---
+
+# Examples with R code: HTML Widgets
+
+.centre[
+```{r, label='example-code-widgets-map', out.width='100%', fig.height=6, echo=TRUE}
+leaflet() %>% addTiles() %>% setView(-0.1371784166832623, 51.52405283300594, zoom = 17)
+```
+]
+
+---
+
+# Examples with R code: HTML Widgets 2
+
+```{r, label='example-code-widgets-dt', highlight.output = TRUE, echo=TRUE}
+DT::datatable(head(iris, 10), fillContainer = FALSE,
+              options = list(pageLength = 6))
+```
+
+---
+
+# Example with R code: Math expressions
+
+You can write LaTeX math expressions inside a pair of dollar signs, e.g. `$\alpha+\beta$` renders $\alpha+\beta$.
+You can use the display style with double dollar signs:
+
+```
+$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
+```
+
+$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
+
+<!-- define the final slide  -->
+
+---
+
+class: final-slide
+
+# Thanks for listening
+
+<br>
+.left[
+<div style="color:skyblue;">
+<span style="color:white;"><b>Name</b></span><br>
+<b>Position</b><br>
+<b>Contact info</b>
+</div>
+
+]
+
+<div class="row">
+  <div class="column">
+    <figure class="item">
+      <img src="images/profile.png" style="width:100%"/>
+      <figcaption class="caption">Name<br>Position/Role</figcaption>
+    </figure>
+  </div>
+  <div class="column">
+    <figure class="item">
+      <img src="images/profile.png" style="width:100%"/>
+      <figcaption class="caption">Name<br>Position/Role</figcaption>
+    </figure>
+  </div>
+  <div class="column">
+    <figure class="item">
+      <img src="images/profile.png" style="width:100%"/>
+      <figcaption class="caption">Name<br>Position/Role</figcaption>
+    </figure>
+  </div>
+  <div class="column" style="padding-right:300px;">
+    <figure class="item">
+      <img src="images/profile.png" style="width:100%"/>
+      <figcaption class="caption">Name<br>Position/Role</figcaption>
+    </figure>
+  </div>
+</div>
+
+.testr[
+<span style="color:white;">Collaborator institution</span><br>
+Name (Position/Role)<br>
+Name (Position/Role)<br>
+Name (Position/Role)<br>
+<br><br>
+<span style="color:white;">Collaborator institution</span><br>
+Name (Position/Role)<br>
+Name (Position/Role)<br>
+Name (Position/Role)<br>
+]
+
+ <!--Use the following to add further logos to the title/final slide-->
+ <!--Adjust sizing in the CSS file-->
+
+<div class="title-logo-1"></div>
+<div class="title-logo-2"></div>
+
+---
+
+# References
+
+```{r, label='print-bib', results="asis"}
+PrintBibliography(bib)
+## use the following to limit number of references for the slide
+## PrintBibliography(bib, start = 1, end = 7)
+```

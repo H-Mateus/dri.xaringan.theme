@@ -1,0 +1,30 @@
+<style>
+.logo {
+  background-image: url(dri_logo.jpg);
+  /* is using inverted slide enable this option */
+  /* background-color: white; */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 30.8em;
+  right: 47.1em;
+  width: 210px;
+  height: 208px;
+  z-index: 0;
+}
+</style>
+
+<script>
+document
+  .querySelectorAll(
+    '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+    // ':not(.inverse)' +
+    ':not(.hide-logo)' +
+    ':not(.final-slide)'
+  )
+  .forEach(el => {
+    el.innerHTML += '<div class="logo"></div>';
+  });
+</script>
