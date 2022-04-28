@@ -17,7 +17,7 @@ remotes::install_github("H-Mateus/dri.xaringan.theme")
 
 To open the template in [RStudio](https://www.rstudio.com/), go to `File` > `New File` > `RMarkdown...` > `From Template` > `DRI xaringan template`
 
-![](img/new-rmd.png)
+![](images/new-rmd.png)
 
 You can also use the `draft()` function from the {rmarkdown} package:
 
