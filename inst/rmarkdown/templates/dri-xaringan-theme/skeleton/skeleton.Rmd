@@ -7,6 +7,9 @@ institute: "Position<br>Lab Group"
 output:
   xaringan::moon_reader:
     css: dri-theme.css
+    ## If one needs to send the presentation as a file, use the following 
+    ## option, though it may be safer to use a web browser to print to PDF
+    #self_contained: true
     ## the following two lines are for having a logo on each slide
     ## update the insert-logo.html to change logo and size/pos
     includes:
